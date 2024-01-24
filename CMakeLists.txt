@@ -17,7 +17,7 @@ if (LLAMA_BUILD)
         set(LLAMA_FMA "Off" CACHE BOOL "llama: enable FMA" FORCE)
         set(LLAMA_F16C "Off" CACHE BOOL "llama: enable F16C" FORCE)
     endif()
-    add_subdirectory(vendor/llama.cpp)
+    add_subdirectory(vendor/PowerInfer)
     install(
         TARGETS llama 
         LIBRARY DESTINATION ${SKBUILD_PLATLIB_DIR}/llama_cpp
@@ -47,7 +47,7 @@ if (LLAMA_BUILD)
 
     if (LLAVA_BUILD)
         # Building llava
-        add_subdirectory(vendor/llama.cpp/examples/llava)
+        add_subdirectory(vendor/PowerInfer/examples/llava)
         set_target_properties(llava_shared PROPERTIES OUTPUT_NAME "llava")
         # Set CUDA_ARCHITECTURES to OFF on windows
         if (WIN32)
